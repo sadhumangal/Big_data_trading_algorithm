@@ -14,11 +14,11 @@ First you need to install PyTrends :
 
 ### Execution
 
-*keywords:must be string
+* keywords:must be string
   example: 'Pizza, salad, tomato'
-*start_date: must be string
+* start_date: must be string
   'today' or 'mm/yyyy'
-*end_date: must be string 
+* end_date: must be string 
   'mm/yyyy'
 
 ### Connect to Google
