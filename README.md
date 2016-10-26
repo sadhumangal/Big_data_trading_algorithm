@@ -14,7 +14,7 @@ First you need to install PyTrends :
 
 ### Execution
 
-* keywords:must be string
+* keywords: must be string
   example: 'Pizza, salad, tomato'
 * start_date: must be string
   'today' or 'mm/yyyy'
