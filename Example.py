@@ -38,7 +38,7 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
     lastDate=datetime(dailyData.index[-1].year,dailyData.index[-1].month,1) #This is the lastDate of the dailyData Frame.
     RemainingTime=lastDate-Time_end_date
 
-    while   TimeRemaining.days >60:
+    while   RemainingTime.days >60:
 
         #look for the new date of the data Frame to be added at the end 
         Month=(dailyData.index[-1]-pd.DateOffset(months=2)).month
