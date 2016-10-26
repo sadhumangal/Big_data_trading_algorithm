@@ -3,10 +3,23 @@
 
 This little script enables to scrap and aggregate daily data from Google Trends over a long period.
 
-The code is based on the unofficial API for Google Trends, available here: https://github.com/GeneralMills/pytrends#trend
+The code is based on the unofficial API for Google Trends, available here: https://github.com/GeneralMills/pytrends
+
+This is my first script as I am new in coding. Please feel free to contribute. 
+You may have issue with Google request quota, try to adjust the sleeping time. 
+
 
 First you need to install PyTrends : 
 ```pip install pytrends```
+
+### Execution
+
+*keywords:must be string
+  example: 'Pizza, salad, tomato'
+*start_date: must be string
+  'today' or 'mm/yyyy'
+*end_date: must be string 
+  'mm/yyyy'
 
 ### Connect to Google
 
@@ -86,3 +99,7 @@ Many API methods use `payload` here is a set of known keys that can be used.
   - Example ```{'gprop': 'images'}```
   - Defaults to web searches
   - Can be ```images```, ```news```, ```youtube``` or ```froogle``` (for Google Shopping results)
+
+##Credits
+* Based on unofficial Google trends API Pytrends
+    - https://github.com/GeneralMills/pytrends
