@@ -79,7 +79,6 @@ end_date="01/2016"
 
 DailyGTData=requestAllDailyData(keywords,Geo,start_date,end_date)
 
-
 DailyGTData.plot()
 plt.xlabel('time')
 plt.ylabel(keywords)
