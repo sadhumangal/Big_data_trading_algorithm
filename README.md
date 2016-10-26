@@ -20,7 +20,7 @@ Parameters
 * custom_useragent
   - name to identify requests coming from your script
   
-  ### API Payload Keys
+### API Payload Keys
 
 Many API methods use `payload` here is a set of known keys that can be used.
 
