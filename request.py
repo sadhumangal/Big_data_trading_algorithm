@@ -102,7 +102,7 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
         NewdailyData[NewdailyData==0]=0.00001
         NewdailyData=NewdailyData[NewdailyData.index<=dailyData.index[-1]]
            
-        #compute the coef in order to rescale the new data
+        #compute the coef in order to adjust the new data
         MatrixFullCoef= pd.DataFrame(index=NewdailyData.index, columns=NewdailyData.columns)
         MatrixFullCoef[:1]=dailyData[-1:]/NewdailyData[:1]
         
