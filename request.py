@@ -109,7 +109,7 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
         for i in range(len(MatrixFullCoef)):
             MatrixFullCoef.iloc[i]=MatrixFullCoef.iloc[0]
            
-        #Adjust the NewDailyData with the coef calculated before
+        #Normalize the NewDailyData with the coef calculated before
         AdjustedNewdailyData=(NewdailyData*MatrixFullCoef)[1:]
         
         #add the new data Frame of daily datas to the existing one
