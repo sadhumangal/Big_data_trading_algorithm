@@ -4,10 +4,11 @@
 This little script enables to scrap and aggregate daily data from Google Trends over a long period.
 
 The code is based on the unofficial API for Google Trends, available here: https://github.com/GeneralMills/pytrends
+As I am new in coding. Please feel free to contribute. 
 
-This is my first script as I am new in coding. Please feel free to contribute. 
-You may have issue with Google request quota, try to adjust the sleeping time. 
+I used Tor and stem to bypass the IP quota rate limitation. You need Tor browser to be running on your compunter. 
 
+You might also need to change the port number used by Tor.
 
 First you need to install PyTrends : 
 ```pip install pytrends```
