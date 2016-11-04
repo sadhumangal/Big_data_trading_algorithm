@@ -1,5 +1,5 @@
-#################################################################################"
-#   IP address changer, rout traffic through Tor, need Tor to be running 
+###########################################################################
+#   IP address changer, rout traffic through Tor, it needs Tor to be running 
 ###########################################################################
 import socket
 import socks
@@ -31,7 +31,7 @@ def showmyip():
     
 #############################################################
 # Random Name for custom_useragent
-################################################################
+#############################################################
 
 def randomName():
     import string
@@ -42,9 +42,9 @@ def randomName():
         name+=random.choice(string.ascii_letters)     
     return name
 
-#################################################################""
+################################################################
 # Main functions 
-################################################################"
+################################################################
 
 def requestDailydatafromGT(keywords, geography, date):  #parameters must be strings 
     from pytrends.request import TrendReq
@@ -68,11 +68,10 @@ def requestDailydatafromGT(keywords, geography, date):  #parameters must be stri
             results= pytrend.trend(trend_payload, return_type='dataframe').sort_index(axis=0, ascending=False) #launch request in Google tren0ds
             mes=1
         
-        except Exception as e:
-            print(str(e))
+        except Exception:
             renew_tor()
             connectTor()
-            showmyip()
+            showmyip() #optional
             pytrend = TrendReq(google_username, google_password, custom_useragent=randomName()) #connect to Google
             mes=0
         
@@ -83,10 +82,8 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
     import numpy as np
     import pandas as pd
     from datetime import datetime
-    import time
     
     Time_end_date=datetime(int(end_date[3:7]),int(end_date[0:2]), 1)
-    
     
     dailyData=requestDailydatafromGT(keywords, geography, start_date) #we look for the first period
         
@@ -95,7 +92,7 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
 
     while   RemainingTime.days >0:
 
-        #look for the new date of the data Frame to be added at the end 
+        #we look for the new date of the data Frame to be added at the end 
         Month=(dailyData.index[-1]-pd.DateOffset(months=2)).month
         Year=(dailyData.index[-1]-pd.DateOffset(months=2)).year
         NewDate="{0}/{1}".format(Month,Year)
