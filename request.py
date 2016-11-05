@@ -33,14 +33,10 @@ def showmyip():
 # Random Name for custom_useragent
 #############################################################
 
-def randomName():
+def randomName(length):
     import string
     import random
-    name=""
-    
-    for i in range(random.randint(5,10)):
-        name+=random.choice(string.ascii_letters)     
-    return name
+    return ''.join(random.choice(string.ascii_letters) for i in range(length))
 
 ################################################################
 # Main functions 
@@ -61,7 +57,7 @@ def requestDailydatafromGT(keywords, geography, date):  #parameters must be stri
     else:
         requestdate=str(date)+' 3m'
     trend_payload = {'q': keywords,'hl': 'en-US','geo': geography, 'date': requestdate} #define parameters of the request
-    pytrend = TrendReq(google_username, google_password, custom_useragent=randomName()) #connect to Google
+    pytrend = TrendReq(google_username, google_password, custom_useragent=randomName(randint(5,10)) #connect to Google
     
     while mes==0:
         try:           
@@ -72,11 +68,10 @@ def requestDailydatafromGT(keywords, geography, date):  #parameters must be stri
             renew_tor()
             connectTor()
             showmyip() #optional
-            pytrend = TrendReq(google_username, google_password, custom_useragent=randomName()) #connect to Google
+            pytrend = TrendReq(google_username, google_password, custom_useragent=randomName(randint(5,10)) #connect to Google
             mes=0
         
     return results
-
 
 def requestAllDailyData(keywords,geography,start_date,end_date):
     import numpy as np
