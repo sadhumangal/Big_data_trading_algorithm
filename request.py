@@ -94,8 +94,9 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
         
         NewdailyData=requestDailydatafromGT(keywords, geography,NewDate)
         
-        NewdailyData[NewdailyData==0]=0.00001
         NewdailyData=NewdailyData[NewdailyData.index<=dailyData.index[-1]]
+        NewdailyData[NewdailyData==0]=0.00001
+        dailyData[dailyData==0]=0.00001
            
         #compute the coef in order to adjust the new data
         MatrixFullCoef= pd.DataFrame(index=NewdailyData.index, columns=NewdailyData.columns)
