@@ -96,7 +96,6 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
         
         NewdailyData=NewdailyData[NewdailyData.index<=dailyData.index[-1]]
         NewdailyData[NewdailyData==0]=0.00001
-        dailyData[dailyData==0]=0.00001
            
         #compute the coef in order to adjust the new data
         MatrixFullCoef= pd.DataFrame(index=NewdailyData.index, columns=NewdailyData.columns)
@@ -110,6 +109,12 @@ def requestAllDailyData(keywords,geography,start_date,end_date):
         
         #add the new data Frame of daily datas to the existing one
         dailyData= dailyData.append(AdjustedNewdailyData,ignore_index=False)
+        
+        for i in range(len(dailyData)-1,0,-1):
+            if dailyData.iloc[i,0]<0.01:
+                dailyData=dailyData[:i]
+            else:
+                break
 
         #return the last date of the computed dataframe of daily datas
         lastDate=datetime(dailyData.index[-1].year,dailyData.index[-1].month,dailyData.index[-1].day) 
